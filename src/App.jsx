@@ -1,5 +1,19 @@
+import { Header } from './ui/components/Header.jsx';
+import { Hero } from './ui/components/Hero.jsx';
+import { Footer } from './ui/components/Footer.jsx';
+
 function App() {
-  return <h1 className="text-blue-400 text-8xl">Hello World!</h1>;
+  return (
+    <>
+      <Header />
+
+      <main className="flex-1 px-8 pb-16">
+        <Hero />
+      </main>
+
+      <Footer />
+    </>
+  );
 }
 
 export default App;
