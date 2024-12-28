@@ -5,7 +5,7 @@ import profile from '../assets/images/profile.jpg';
 
 export function Hero() {
   return (
-    <section className="relative top-20 m-auto mb-20 mt-10 max-w-[760px] space-y-8">
+    <section className="relative top-20 m-auto mt-10 max-w-[760px] space-y-8 pb-20">
       <img
         src={profile}
         alt="Foto de João"

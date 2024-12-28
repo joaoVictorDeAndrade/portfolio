@@ -17,6 +17,10 @@ export default {
         secondary: {
           main: '#9A33FF',
         },
+        tertiary: {
+          main: '#5BADFF',
+          dark: '#1373D1',
+        },
       },
       fontFamily: {
         jakarta: ['Plus Jakarta Sans', 'sans-serif'],

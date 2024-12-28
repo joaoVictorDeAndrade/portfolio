@@ -23,4 +23,9 @@
     button {
         @apply ring-secondary-main focus:outline-none focus:ring-2;
     }
+
+    .experience-text {
+        background-image: linear-gradient(180deg, theme('colors.tertiary.main') 0%, theme('colors.tertiary.dark') 100%);
+        @apply text-3xl font-bold bg-clip-text text-transparent uppercase;
+    }
 }
