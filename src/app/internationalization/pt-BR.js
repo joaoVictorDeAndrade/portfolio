@@ -16,6 +16,9 @@ export default {
         downloadCV: 'Baixar CV',
         experienceWith: 'Tecnologias que trabalho',
       },
+      Experience: {
+        title: 'Experiência',
+      },
       Footer: {
         title: 'Contato',
         description:

@@ -13,7 +13,7 @@ export function Footer() {
 
       <footer
         id="footer"
-        className="w-full bg-center px-14 pb-20 pt-10 sm:px-36"
+        className="w-full bg-center px-10 pb-20 pt-10 sm:px-36"
       >
         <h5 className="text-xl font-bold">{t(`${LOCALE_PATH}.title`)}</h5>
 

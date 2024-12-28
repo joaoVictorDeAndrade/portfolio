@@ -16,6 +16,9 @@ export default {
         downloadCV: 'Download CV',
         experienceWith: 'Experience with',
       },
+      Experience: {
+        title: 'Experience',
+      },
       Footer: {
         title: 'Contact',
         description:
