@@ -7,28 +7,17 @@ import tailwindcssLogo from '/public/tailwindcss.svg';
 import nextJsLogo from '/public/nextjs.svg';
 import nodeLogo from '/public/node.svg';
 
-const iconsArray = [
-  { name: 'React', src: reactLogo },
-  { name: 'Vue', src: vueLogo },
-  { name: 'Next.js', src: nextJsLogo },
-  { name: 'Node.js', src: nodeLogo },
-  { name: 'Jest', src: jestLogo },
-  { name: 'JavaScript', src: javascriptLogo, className: 'col-start-2' },
-  { name: 'TypeScript', src: typescriptLogo },
-  { name: 'Tailwind CSS', src: tailwindcssLogo },
-];
-
 export function IconsContainer() {
   return (
     <div className="grid grid-cols-5 gap-8">
-      {iconsArray.map((icon) => (
-        <img
-          key={icon.name}
-          src={icon.src}
-          alt=""
-          className={`grayscale transition duration-500 hover:grayscale-0 ${icon.className}`}
-        />
-      ))}
+      <img src={reactLogo} alt="" />
+      <img src={vueLogo} alt="" />
+      <img src={nextJsLogo} alt="" />
+      <img src={nodeLogo} alt="" />
+      <img src={jestLogo} alt="" />
+      <img src={javascriptLogo} alt="" className="col-start-2" />
+      <img src={typescriptLogo} alt="" />
+      <img src={tailwindcssLogo} alt="" />
     </div>
   );
 }

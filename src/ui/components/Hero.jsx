@@ -20,7 +20,6 @@ export function Hero() {
           {' '}
           about it!
         </span>
-        1
       </h1>
 
       <p className="text-neutral-light text-center">
