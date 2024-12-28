@@ -1,3 +1,5 @@
+import { Trans } from 'react-i18next';
+
 export function ExperienceItem({ experience }) {
   return (
     <li className="my-8 flex flex-col gap-4 text-start">
@@ -11,7 +13,14 @@ export function ExperienceItem({ experience }) {
         <p className="text-neutral-light text-sm">{experience.period}</p>
       </div>
 
-      <p className="text-neutral-light text-sm">{experience.description}</p>
+      <p className="text-neutral-light text-sm">
+        <Trans
+          i18nKey={experience.description}
+          components={{
+            strong: <strong className="text-white font-semibold" />,
+          }}
+        />
+      </p>
     </li>
   );
 }

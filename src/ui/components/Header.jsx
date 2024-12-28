@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { scrollTo } from '@app/utils/scrollTo.js';
 
 const LOCALE_PATH = 'components.Header';
 
@@ -10,7 +11,9 @@ export function Header() {
       <div className="flex h-full items-center justify-center">
         <ul className="font-jakarta flex gap-4 sm:gap-12">
           <li>
-            <a href="#hero">{t(`${LOCALE_PATH}.home`)}</a>
+            <a href="#hero" onClick={() => scrollTo(0)}>
+              {t(`${LOCALE_PATH}.home`)}
+            </a>
           </li>
           <li>
             <a href="#projects" className="cursor-not-allowed">

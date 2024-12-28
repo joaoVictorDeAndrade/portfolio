@@ -13,7 +13,6 @@ export function Hero() {
 
   return (
     <>
-      <div id="hero" />
       <section className="relative top-20 m-auto mt-10 max-w-[760px] space-y-8 pb-20">
         <img
           src={profile}
@@ -23,7 +22,7 @@ export function Hero() {
           className="m-auto h-40 w-40 rounded-full object-cover object-[center_70%]"
         />
 
-        <h1 className="font-poppins text-white text-center text-5xl font-bold !leading-[64px] sm:text-6xl">
+        <h1 className="font-poppins text-white text-center text-4xl font-bold sm:text-5xl">
           {t(`${LOCALE_PATH}.title`)}
           <span className="text-transparent from-primary-main to-secondary-main bg-gradient-to-r bg-clip-text">
             {' '}
