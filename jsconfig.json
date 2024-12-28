@@ -1,8 +1,8 @@
 {
   "compilerOptions" :  {
     "paths" :  {
-      "@components" :  ["./src/ui/components"],
-      "@public": ["./public"]
+      "@components/*" :  ["./src/ui/components/*"],
+      "@app/*" :  ["./src/app/*"]
     }
   }
 }
