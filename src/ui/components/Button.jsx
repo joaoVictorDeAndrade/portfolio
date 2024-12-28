@@ -25,6 +25,10 @@ const button = tv({
   },
 });
 
-export function Button({ children, size, variant }) {
-  return <button className={button({ size, variant })}>{children}</button>;
+export function Button({ children, size, variant, onClick }) {
+  return (
+    <button onClick={onClick} className={button({ size, variant })}>
+      {children}
+    </button>
+  );
 }

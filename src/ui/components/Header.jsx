@@ -13,7 +13,9 @@ export function Header() {
             <a href="#hero">{t(`${LOCALE_PATH}.home`)}</a>
           </li>
           <li>
-            <a href="#projects">{t(`${LOCALE_PATH}.projects`)}</a>
+            <a href="#projects" className="cursor-not-allowed">
+              {t(`${LOCALE_PATH}.projects`)}
+            </a>
           </li>
           <li>
             <a href="#experience">{t(`${LOCALE_PATH}.experience`)}</a>
