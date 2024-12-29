@@ -8,7 +8,7 @@ export function Divisor({ tailwindColor = 'secondary' }) {
 
   return (
     <div
-      className={`from-transparent ${color} to-transparent h-1 bg-gradient-to-r`}
+      className={`from-transparent ${color} h-1 bg-gradient-to-r to-transparent`}
     />
   );
 }
