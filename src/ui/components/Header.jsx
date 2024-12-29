@@ -11,7 +11,7 @@ export function Header() {
       <div className="flex h-full items-center justify-center">
         <ul className="font-jakarta flex gap-4 sm:gap-12">
           <li>
-            <a href="#hero" onClick={() => scrollTo(0)}>
+            <a href="#hero" translate="no" onClick={() => scrollTo(0)}>
               {t(`${LOCALE_PATH}.home`)}
             </a>
           </li>

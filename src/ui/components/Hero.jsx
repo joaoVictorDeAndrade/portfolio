@@ -22,11 +22,15 @@ export function Hero() {
           className="m-auto h-40 w-40 rounded-full object-cover object-[center_70%]"
         />
 
-        <h1 className="font-poppins text-white text-center text-3xl font-bold sm:text-5xl">
-          {t(`${LOCALE_PATH}.title`)}
-          <span className="text-transparent from-primary-main to-secondary-main bg-gradient-to-r bg-clip-text">
-            {' '}
-            {t(`${LOCALE_PATH}.complement`)}
+        <h1 className="text-white text-center text-3xl font-bold [text-wrap:balance] sm:text-5xl">
+          {t(`${LOCALE_PATH}.title`)}{' '}
+          <span className="inline-flex h-[calc(theme(fontSize.3xl)*theme(lineHeight.tight))] flex-col overflow-hidden sm:h-[calc(theme(fontSize.5xl)*theme(lineHeight.tight))]">
+            <ul className="text-transparent from-primary-main to-secondary-main animate-text-slide-3 xs:text-left block bg-gradient-to-r bg-clip-text text-center leading-tight [&_li]:block">
+              <li>{t(`${LOCALE_PATH}.software`)}</li>
+              <li>{t(`${LOCALE_PATH}.technology`)}</li>
+              <li>{t(`${LOCALE_PATH}.apps`)}</li>
+              <li aria-hidden="true">{t(`${LOCALE_PATH}.software`)}</li>
+            </ul>
           </span>
         </h1>
 
@@ -49,7 +53,7 @@ export function Hero() {
         </div>
 
         <div className="text-neutral-light !mt-16 flex flex-col items-center justify-center gap-6">
-          <p className="text-xl font-semibold uppercase tracking-widest">
+          <p className="text-center text-xl font-semibold uppercase tracking-widest">
             {t(`${LOCALE_PATH}.experienceWith`)}
           </p>
 

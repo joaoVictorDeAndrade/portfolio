@@ -9,14 +9,16 @@ export default {
       },
       Hero: {
         title: 'Oi, eu sou o João e trabalho criando',
-        complement: 'software!',
+        software: 'software!',
+        technology: 'tecnologia!',
+        apps: 'aplicativos!',
         description:
           'Sou um engenheiro de software full-stack com mais de <strong>4 anos de experiência</strong> ' +
           'profissional, <strong>especializado em desenvolvimento front-end</strong>. ' +
           'Trabalho criando interfaces acessíveis, performáticas e focadas em ' +
           'experiência do usuário utilizando tecnologias como <strong>React JS</strong> e <strong>Vue JS</strong>. <br /><br />' +
           'Além disso, possuo experiência com desenvolvimento back-end com ' +
-          '<strong>Node JS</strong>, aplicativos móveis com <strong>React Native</strong> ' +
+          'Node JS, aplicativos móveis com React Native ' +
           'e soluções na nuvem utilizando <strong>serviços AWS</strong>.',
         getInTouch: 'Entrar em contato',
         downloadCV: 'Baixar CV',
@@ -29,8 +31,7 @@ export default {
         title: 'Contato',
         description:
           'Se você tiver alguma dúvida, oportunidade de colaboração ou quiser saber ' +
-          'mais sobre o meu trabalho, sinta-se à vontade para me enviar uma mensagem. ' +
-          'Adoraria conversar!',
+          'mais sobre o meu trabalho, sinta-se à vontade para me enviar uma mensagem.',
       },
     },
     constants: {

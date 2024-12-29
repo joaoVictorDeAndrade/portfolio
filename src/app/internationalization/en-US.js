@@ -9,7 +9,9 @@ export default {
       },
       Hero: {
         title: 'Hi, I am João and I work creating',
-        complement: 'software!',
+        software: 'software!',
+        technology: 'technology!',
+        apps: 'applications!',
         description:
           'I am a full-stack software engineer with over <strong>4 years of professional experience</strong>, ' +
           '<strong>specialized in front-end development</strong>. ' +
@@ -17,8 +19,8 @@ export default {
           'user experience using technologies such as <strong>React JS</strong> and ' +
           '<strong>Vue JS</strong>. <br /><br />\n' +
           'Additionally, I have experience in back-end development with ' +
-          '<strong>Node JS</strong>, mobile applications with ' +
-          '<strong>React Native</strong>, and cloud solutions using ' +
+          'Node JS, mobile applications with ' +
+          'React Native, and cloud solutions using ' +
           '<strong>AWS services</strong>.',
         getInTouch: 'Get in Touch',
         downloadCV: 'Download CV',
@@ -30,7 +32,7 @@ export default {
       Footer: {
         title: 'Contact',
         description:
-          "If you have any questions, collaboration opportunities, or would like to learn more about my work, feel free to send me a message. I'd love to connect!",
+          'If you have any questions, collaboration opportunities, or would like to learn more about my work, feel free to send me a message.',
       },
     },
     constants: {
