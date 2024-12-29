@@ -7,9 +7,9 @@ export function Header() {
   const { t } = useTranslation();
 
   return (
-    <header className="text-white fixed left-0 top-0 z-10 h-20 w-full justify-center bg-background bg-opacity-80 drop-shadow-md backdrop-blur">
+    <header className="fixed left-0 top-0 z-10 h-20 w-full justify-center bg-background bg-opacity-80 text-white drop-shadow-md backdrop-blur">
       <div className="flex h-full items-center justify-center">
-        <ul className="font-jakarta flex gap-4 sm:gap-12">
+        <ul className="flex gap-4 font-jakarta sm:gap-12">
           <li>
             <a href="#hero" translate="no" onClick={() => scrollTo(0)}>
               {t(`${LOCALE_PATH}.home`)}

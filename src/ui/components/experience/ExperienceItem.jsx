@@ -10,14 +10,14 @@ export function ExperienceItem({ experience }) {
             {experience.name}
           </a>
         </h4>
-        <p className="text-neutral-light text-sm">{experience.period}</p>
+        <p className="text-sm text-neutral-light">{experience.period}</p>
       </div>
 
-      <p className="text-neutral-light text-sm">
+      <p className="text-sm text-neutral-light">
         <Trans
           i18nKey={experience.description}
           components={{
-            strong: <strong className="text-white font-semibold" />,
+            strong: <strong className="font-semibold text-white" />,
           }}
         />
       </p>
