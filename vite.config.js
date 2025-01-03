@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'node:path';
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
   resolve: {
     alias: {
@@ -11,13 +11,16 @@ export default defineConfig({
       '@app': path.resolve(__dirname, 'src/app'),
     },
   },
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://joaoandrade.dev.br',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
-  },
-});
+  server:
+    mode === 'development'
+      ? {
+          proxy: {
+            '/api': {
+              target: 'https://joaoandrade.dev.br',
+              changeOrigin: true,
+              rewrite: (path) => path.replace(/^\/api/, ''),
+            },
+          },
+        }
+      : {},
+}));
