@@ -12,7 +12,7 @@ export function Hero() {
   const { t } = useTranslation();
 
   async function downloadCV() {
-    const pdfUrl = 'api/CV_Joao_Andrade.pdf';
+    const pdfUrl = `${import.meta.env.VITE_API_URL}/CV_Joao_Andrade.pdf`;
 
     try {
       const response = await fetch(pdfUrl);
