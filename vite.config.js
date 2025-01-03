@@ -11,4 +11,13 @@ export default defineConfig({
       '@app': path.resolve(__dirname, 'src/app'),
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://joaoandrade.dev.br',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 });
