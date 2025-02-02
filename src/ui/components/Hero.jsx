@@ -12,30 +12,24 @@ export function Hero() {
   const { t, i18n } = useTranslation();
 
   async function downloadCV() {
-    const { language } = i18n;
-    const pdfUrl = `${import.meta.env.VITE_API_URL}/JoaoAndrade-${language}.pdf`;
-
     try {
-      const response = await fetch(pdfUrl);
+      const { language } = i18n;
 
-      if (!response.ok) {
-        console.error('Error:', response.statusText);
-        return;
-      }
+      const pdfLinks = {
+        pt: 'https://drive.google.com/uc?export=download&id=1TKoyNKSZ8qGDaholedTb4Z_ZhJjNRD9w',
+        en: 'https://drive.google.com/uc?export=download&id=15Vmvus7X4XKkJ3lUi0EW6pxzrMYLAViK',
+      };
 
-      const blob = await response.blob();
-
-      const blobUrl = URL.createObjectURL(blob);
+      const pdfUrl = pdfLinks[language] || pdfLinks.en;
 
       const link = document.createElement('a');
-      link.href = blobUrl;
+      link.href = pdfUrl;
+      link.target = '_blank';
       link.download = 'JoaoAndrade.pdf';
       document.body.appendChild(link);
 
       link.click();
-
       document.body.removeChild(link);
-      URL.revokeObjectURL(blobUrl);
     } catch (error) {
       console.error('Error:', error.message);
     }
