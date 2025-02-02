@@ -9,9 +9,13 @@ const resources = {
   pt,
 };
 
+function getDefaultLanguage() {
+  return navigator.language?.includes('pt') ? 'pt' : 'en';
+}
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'pt',
+  lng: getDefaultLanguage(),
   interpolation: {
     escapeValue: false,
   },

@@ -3,33 +3,37 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
-  }
+    html {
+        font-family: 'Poppins', sans-serif;
+        scroll-behavior: smooth;
+    }
 
-  body {
-    background: theme('colors.background');
-    color: theme('colors.white');
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-  }
+    body {
+        background: theme('colors.background');
+        color: theme('colors.white');
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
 
-  a {
-    @apply focus:outline-none focus:ring-2 focus:ring-secondary-main;
-  }
+    a {
+        @apply focus:outline-none focus:ring-2 focus:ring-secondary-main;
+    }
 
-  button {
-    @apply ring-secondary-main focus:outline-none focus:ring-2;
-  }
+    button {
+        @apply ring-secondary-main focus:outline-none focus:ring-2;
+    }
 
-  .experience-text {
-    background-image: linear-gradient(
-      180deg,
-      theme('colors.tertiary.main') 0%,
-      theme('colors.tertiary.dark') 100%
-    );
-    @apply bg-clip-text text-3xl font-bold uppercase text-transparent;
-  }
+    .experience-text {
+        background-image: linear-gradient(
+                180deg,
+                theme('colors.tertiary.main') 0%,
+                theme('colors.tertiary.dark') 100%
+        );
+        @apply bg-clip-text text-3xl font-bold uppercase text-transparent;
+    }
+
+    :root {
+        --radius: 0.5rem;
+    }
 }
