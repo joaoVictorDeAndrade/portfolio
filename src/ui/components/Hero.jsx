@@ -9,10 +9,11 @@ import profile from '../assets/images/profile.jpg';
 const LOCALE_PATH = 'components.Hero';
 
 export function Hero() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   async function downloadCV() {
-    const pdfUrl = `${import.meta.env.VITE_API_URL}/CV_Joao_Andrade.pdf`;
+    const { language } = i18n;
+    const pdfUrl = `${import.meta.env.VITE_API_URL}/JoaoAndrade-${language}.pdf`;
 
     try {
       const response = await fetch(pdfUrl);
@@ -28,7 +29,7 @@ export function Hero() {
 
       const link = document.createElement('a');
       link.href = blobUrl;
-      link.download = 'CV_JoaoAndrade.pdf';
+      link.download = 'JoaoAndrade.pdf';
       document.body.appendChild(link);
 
       link.click();
