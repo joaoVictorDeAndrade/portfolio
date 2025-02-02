@@ -24,11 +24,11 @@ export function Hero() {
 
       const link = document.createElement('a');
       link.href = pdfUrl;
-      link.target = '_blank';
       link.download = 'JoaoAndrade.pdf';
       document.body.appendChild(link);
 
       link.click();
+
       document.body.removeChild(link);
     } catch (error) {
       console.error('Error:', error.message);
