@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { COMPANIES } from '@app/constants/companies.js';
 import { ExperienceItem } from '@components/experience/ExperienceItem.jsx';
+import { useExperienceList } from '@components/experience/useExperienceList.js';
 
 export function ExperienceList() {
   const [showAll, setShowAll] = useState(false);
+
+  const { COMPANIES } = useExperienceList();
 
   const displayedCompanies = showAll ? COMPANIES : COMPANIES.slice(0, 3);
 
