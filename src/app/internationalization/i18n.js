@@ -11,8 +11,14 @@ const resources = {
 
 const supportedLanguages = ['en', 'pt'];
 const languageStorageKey = 'portfolioLanguage';
+const prerenderLanguage = 'pt';
+const isBrowser = typeof window !== 'undefined';
 
 function getStoredLanguage() {
+  if (!isBrowser) {
+    return null;
+  }
+
   try {
     const language = localStorage.getItem(languageStorageKey);
     return supportedLanguages.includes(language) ? language : null;
@@ -21,11 +27,15 @@ function getStoredLanguage() {
   }
 }
 
-function getDefaultLanguage() {
+function getPreferredLanguage() {
   const storedLanguage = getStoredLanguage();
 
   if (storedLanguage) {
     return storedLanguage;
+  }
+
+  if (!isBrowser) {
+    return prerenderLanguage;
   }
 
   const preferredLanguages = navigator.languages ?? [navigator.language];
@@ -36,9 +46,23 @@ function getDefaultLanguage() {
   return browserLanguage ?? 'en';
 }
 
+function getInitialLanguage() {
+  if (!isBrowser) {
+    return prerenderLanguage;
+  }
+
+  const rootElement = document.getElementById('root');
+
+  if (rootElement?.hasChildNodes()) {
+    return document.documentElement.lang.split('-')[0];
+  }
+
+  return getPreferredLanguage();
+}
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: getDefaultLanguage(),
+  lng: getInitialLanguage(),
   fallbackLng: 'en',
   supportedLngs: supportedLanguages,
   interpolation: {
@@ -47,7 +71,9 @@ i18n.use(initReactI18next).init({
 });
 
 function updateDocumentLanguage(language) {
-  document.documentElement.lang = language === 'pt' ? 'pt-BR' : 'en';
+  if (isBrowser) {
+    document.documentElement.lang = language === 'pt' ? 'pt-BR' : 'en';
+  }
 }
 
 updateDocumentLanguage(i18n.resolvedLanguage);
@@ -65,6 +91,14 @@ export function setPreferredLanguage(language) {
   }
 
   i18n.changeLanguage(language);
+}
+
+export function syncLanguageWithPreferences() {
+  const preferredLanguage = getPreferredLanguage();
+
+  if (i18n.resolvedLanguage !== preferredLanguage) {
+    i18n.changeLanguage(preferredLanguage);
+  }
 }
 
 export const { t } = i18n;

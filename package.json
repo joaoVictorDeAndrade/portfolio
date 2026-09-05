@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "yarn build:client && yarn build:ssr && node scripts/prerender.mjs",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.jsx --outDir dist-ssr",
     "format": "prettier --write .",
-    "lint": "prettier --check src index.html package.json vite.config.js tailwind.config.js eslint.config.js .github && eslint .",
+    "lint": "prettier --check src scripts index.html package.json vite.config.js tailwind.config.js eslint.config.js .github && eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
