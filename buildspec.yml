@@ -10,11 +10,21 @@ phases:
       - yarn install --frozen-lockfile
 
   build:
+    on-failure: ABORT
     commands:
       - yarn build
 
   post_build:
     commands:
+      - |
+        if [ "${CODEBUILD_BUILD_SUCCEEDING}" != "1" ]; then
+          echo "Build falhou; deploy cancelado."
+          exit 1
+        fi
       - aws s3 sync --delete --only-show-errors --exclude "assets/*" --cache-control "public,max-age=0,must-revalidate" ./dist s3://${DEPLOY_BUCKET}
       - aws s3 sync --delete --only-show-errors --cache-control "public,max-age=31536000,immutable" ./dist/assets s3://${DEPLOY_BUCKET}/assets
       - aws cloudfront create-invalidation --distribution-id ${CF_ID} --paths "/*"
+
+cache:
+  paths:
+    - '/root/.cache/yarn/**/*'
