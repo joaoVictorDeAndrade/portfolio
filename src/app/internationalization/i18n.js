@@ -9,15 +9,38 @@ const resources = {
   pt,
 };
 
+const supportedLanguages = ['en', 'pt'];
+const languageStorageKey = 'portfolioLanguage';
+
+function getStoredLanguage() {
+  try {
+    const language = localStorage.getItem(languageStorageKey);
+    return supportedLanguages.includes(language) ? language : null;
+  } catch {
+    return null;
+  }
+}
+
 function getDefaultLanguage() {
-  return navigator.language?.includes('pt') ? 'pt' : 'en';
+  const storedLanguage = getStoredLanguage();
+
+  if (storedLanguage) {
+    return storedLanguage;
+  }
+
+  const preferredLanguages = navigator.languages ?? [navigator.language];
+  const browserLanguage = preferredLanguages
+    .map((language) => language?.toLowerCase().split('-')[0])
+    .find((language) => supportedLanguages.includes(language));
+
+  return browserLanguage ?? 'en';
 }
 
 i18n.use(initReactI18next).init({
   resources,
   lng: getDefaultLanguage(),
   fallbackLng: 'en',
-  supportedLngs: ['en', 'pt'],
+  supportedLngs: supportedLanguages,
   interpolation: {
     escapeValue: false,
   },
@@ -29,6 +52,20 @@ function updateDocumentLanguage(language) {
 
 updateDocumentLanguage(i18n.resolvedLanguage);
 i18n.on('languageChanged', updateDocumentLanguage);
+
+export function setPreferredLanguage(language) {
+  if (!supportedLanguages.includes(language)) {
+    return;
+  }
+
+  try {
+    localStorage.setItem(languageStorageKey, language);
+  } catch {
+    // A preferência ainda é aplicada quando o armazenamento está indisponível.
+  }
+
+  i18n.changeLanguage(language);
+}
 
 export const { t } = i18n;
 export default i18n;

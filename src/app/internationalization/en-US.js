@@ -12,6 +12,9 @@ export default {
         projects: 'Projects',
         experience: 'Experience',
         contact: 'Contact',
+        navigation: 'Main navigation',
+        openMenu: 'Open menu',
+        closeMenu: 'Close menu',
       },
       Hero: {
         title: 'Hi, I am João and I work creating',
