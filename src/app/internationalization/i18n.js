@@ -76,16 +76,16 @@ function getInitialLanguage() {
     return prerenderLanguage;
   }
 
-  const routeLanguage = getRouteLanguage();
-
-  if (routeLanguage) {
-    return routeLanguage;
-  }
-
   const rootElement = document.getElementById('root');
 
   if (rootElement?.hasChildNodes()) {
     return document.documentElement.lang.split('-')[0];
+  }
+
+  const routeLanguage = getRouteLanguage();
+
+  if (routeLanguage) {
+    return routeLanguage;
   }
 
   return getPreferredLanguage();

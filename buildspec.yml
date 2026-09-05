@@ -25,4 +25,5 @@ phases:
         fi
       - aws s3 sync --delete --only-show-errors --exclude "assets/*" --cache-control "public,max-age=0,must-revalidate" ./dist s3://${DEPLOY_BUCKET}
       - aws s3 sync --delete --only-show-errors --cache-control "public,max-age=31536000,immutable" ./dist/assets s3://${DEPLOY_BUCKET}/assets
+      - aws s3api put-object --bucket "${DEPLOY_BUCKET}" --key "en/" --body "./dist/en/index.html" --content-type "text/html; charset=utf-8" --cache-control "public,max-age=0,must-revalidate"
       - aws cloudfront create-invalidation --distribution-id ${CF_ID} --paths "/*"
