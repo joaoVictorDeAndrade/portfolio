@@ -14,6 +14,9 @@ export default defineConfig(({ mode }) => {
         '@app': path.resolve(rootDirectory, 'src/app'),
       },
     },
+    ssr: {
+      noExternal: true,
+    },
   };
 
   if (mode === 'development') {
