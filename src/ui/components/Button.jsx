@@ -1,4 +1,5 @@
 import { tv } from 'tailwind-variants';
+import PropTypes from 'prop-types';
 
 const button = tv({
   base: 'h-10 text-white font-semibold rounded-full hover:ring-2',
@@ -27,8 +28,19 @@ const button = tv({
 
 export function Button({ children, size, variant, onClick }) {
   return (
-    <button onClick={onClick} className={button({ size, variant })}>
+    <button
+      type="button"
+      onClick={onClick}
+      className={button({ size, variant })}
+    >
       {children}
     </button>
   );
 }
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  variant: PropTypes.oneOf(['primary', 'secondary']),
+};

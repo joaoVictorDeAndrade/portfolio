@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import { Root, Thumb } from '@radix-ui/react-switch';
+import PropTypes from 'prop-types';
 
 import { cn } from '@components/lib/utils.js';
 
@@ -21,5 +22,8 @@ const Switch = forwardRef(({ className, ...props }, ref) => (
 ));
 
 Switch.displayName = Root.displayName;
+Switch.propTypes = {
+  className: PropTypes.string,
+};
 
 export { Switch };

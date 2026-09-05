@@ -1,4 +1,5 @@
 import { Trans } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 export function ExperienceItem({ experience }) {
   return (
@@ -6,7 +7,12 @@ export function ExperienceItem({ experience }) {
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <h4 className="text-xl font-semibold">
           {experience.title}
-          <a href={experience.link} target="_blank" className="hover:underline">
+          <a
+            href={experience.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
             {experience.name}
           </a>
         </h4>
@@ -15,7 +21,7 @@ export function ExperienceItem({ experience }) {
 
       <p className="text-sm text-neutral-light">
         <Trans
-          i18nKey={experience.description}
+          i18nKey={experience.descriptionKey}
           components={{
             strong: <strong className="font-semibold text-white" />,
           }}
@@ -24,3 +30,13 @@ export function ExperienceItem({ experience }) {
     </li>
   );
 }
+
+ExperienceItem.propTypes = {
+  experience: PropTypes.shape({
+    descriptionKey: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    period: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+};

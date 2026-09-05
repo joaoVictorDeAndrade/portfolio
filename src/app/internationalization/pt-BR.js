@@ -1,5 +1,11 @@
 export default {
   translation: {
+    seo: {
+      title: 'João Andrade | Engenheiro de Software Full-stack',
+      description:
+        'Portfólio de João Andrade, engenheiro de software full-stack focado ' +
+        'em interfaces web acessíveis e performáticas com React e Vue.',
+    },
     components: {
       Header: {
         home: 'Home',
@@ -13,7 +19,7 @@ export default {
         technology: 'tecnologia!',
         apps: 'aplicativos!',
         description:
-          'Sou um engenheiro de software full-stack com mais de <strong>4 anos de experiência</strong> ' +
+          `Sou um engenheiro de software full-stack com mais de <strong>${new Date().getFullYear() - 2021} anos de experiência</strong> ` +
           'profissional, <strong>especializado em desenvolvimento front-end</strong>. ' +
           'Trabalho criando interfaces acessíveis, performáticas e focadas em ' +
           'experiência do usuário utilizando tecnologias como <strong>React JS</strong> e <strong>Vue JS</strong>. <br /><br />' +
@@ -23,9 +29,14 @@ export default {
         getInTouch: 'Entrar em contato',
         downloadCV: 'Baixar CV',
         experienceWith: 'Tecnologias que trabalho',
+        profileAlt: 'Retrato de João Andrade',
       },
       Experience: {
         title: 'Experiência',
+        showMore: 'Mostrar mais',
+      },
+      LanguageSwitch: {
+        label: 'Alterar idioma',
       },
       Footer: {
         title: 'Contato',

@@ -1,5 +1,11 @@
 export default {
   translation: {
+    seo: {
+      title: 'João Andrade | Full-stack Software Engineer',
+      description:
+        'Portfolio of João Andrade, a full-stack software engineer focused ' +
+        'on accessible, high-performance web interfaces with React and Vue.',
+    },
     components: {
       Header: {
         home: 'Home',
@@ -13,7 +19,7 @@ export default {
         technology: 'technology!',
         apps: 'applications!',
         description:
-          'I am a full-stack software engineer with over <strong>4 years of professional experience</strong>, ' +
+          `I am a full-stack software engineer with over <strong>${new Date().getFullYear() - 2021} years of professional experience</strong>, ` +
           '<strong>specialized in front-end development</strong>. ' +
           'I work on creating accessible, high-performance interfaces focused on ' +
           'user experience using technologies such as <strong>React JS</strong> and ' +
@@ -25,9 +31,14 @@ export default {
         getInTouch: 'Get in Touch',
         downloadCV: 'Download CV',
         experienceWith: 'Experience with',
+        profileAlt: 'Portrait of João Andrade',
       },
       Experience: {
         title: 'Experience',
+        showMore: 'Show more',
+      },
+      LanguageSwitch: {
+        label: 'Change language',
       },
       Footer: {
         title: 'Contact',
@@ -67,7 +78,7 @@ export default {
           title: 'Front-end Developer at ',
           name: 'Bhut',
           link: 'https://www.bhut.com.br/',
-          period: 'Jan 2020 - Aug 2022',
+          period: 'Jan 2022 - Aug 2022',
           description:
             'As a Front-end Developer at Bhut, I was responsible for developing ' +
             'high-performance user interfaces for web applications. I worked as a front-end and mobile developer, ' +

@@ -6,17 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "prettier --check src",
-    "preview": "vite preview",
-    "test": "echo 'Testes passaram!'"
+    "format": "prettier --write .",
+    "lint": "prettier --check src index.html package.json vite.config.js tailwind.config.js eslint.config.js .github && eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@radix-ui/react-switch": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "i18next": "^24.2.0",
     "lucide-react": "^0.474.0",
+    "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-i18next": "^15.2.0",
     "tailwind-merge": "^3.0.1",
     "tailwind-variants": "^0.3.0",
     "tailwindcss-animate": "^1.0.7"
@@ -32,11 +35,9 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
-    "i18next": "^24.2.0",
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
-    "react-i18next": "^15.2.0",
     "tailwindcss": "^3.4.17",
     "vite": "^6.0.5"
   }
