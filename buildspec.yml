@@ -3,10 +3,8 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 24
+      nodejs: 18
     commands:
-      - n 24
-      - hash -r
       - node --version
 
   pre_build:
