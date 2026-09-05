@@ -11,6 +11,12 @@ import dockerLogo from '/docker.svg?url';
 import gitLogo from '/git.svg?url';
 import postgresLogo from '/postgres.svg?url';
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@components/components/ui/tooltip.jsx';
+
 const technologies = [
   { name: 'React', logo: reactLogo },
   { name: 'Vue', logo: vueLogo },
@@ -31,7 +37,19 @@ export function IconsContainer() {
     <ul className="grid grid-cols-4 items-center gap-8 sm:grid-cols-6">
       {technologies.map(({ name, logo }) => (
         <li key={name}>
-          <img src={logo} alt={name} title={name} />
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <span
+                tabIndex={0}
+                className="flex rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-main"
+              >
+                <img src={logo} alt={name} />
+              </span>
+            </TooltipTrigger>
+            <TooltipContent side="top">
+              <p>{name}</p>
+            </TooltipContent>
+          </Tooltip>
         </li>
       ))}
     </ul>

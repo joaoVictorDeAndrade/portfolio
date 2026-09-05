@@ -6,6 +6,7 @@ import { Hero } from './ui/components/Hero.jsx';
 import { Footer } from './ui/components/Footer.jsx';
 import { Experience } from './ui/components/experience/Experience.jsx';
 import { Seo } from './ui/components/Seo.jsx';
+import { TooltipProvider } from './ui/components/components/ui/tooltip.jsx';
 
 function App() {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <TooltipProvider delayDuration={200}>
       <Seo />
       <a
         href="#main-content"
@@ -31,7 +32,7 @@ function App() {
       </main>
 
       <Footer />
-    </>
+    </TooltipProvider>
   );
 }
 

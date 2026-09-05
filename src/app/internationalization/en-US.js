@@ -6,6 +6,9 @@ export default {
         'Portfolio of João Andrade, a full-stack software engineer focused ' +
         'on accessible, high-performance web interfaces with React and Vue.',
       socialImageAlt: 'Portrait of João Andrade.',
+      jobTitle: 'Full-stack Software Engineer',
+      personDescription:
+        'Software engineer focused on accessible, high-performance web interfaces.',
     },
     accessibility: {
       skipToContent: 'Skip to main content',

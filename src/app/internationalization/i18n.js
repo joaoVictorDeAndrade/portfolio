@@ -13,6 +13,18 @@ const supportedLanguages = ['en', 'pt'];
 const languageStorageKey = 'portfolioLanguage';
 const prerenderLanguage = 'pt';
 const isBrowser = typeof window !== 'undefined';
+const languageRoutes = {
+  en: '/en/',
+  pt: '/',
+};
+
+function getRouteLanguage() {
+  if (!isBrowser) {
+    return null;
+  }
+
+  return window.location.pathname.startsWith('/en') ? 'en' : null;
+}
 
 function getStoredLanguage() {
   if (!isBrowser) {
@@ -49,6 +61,12 @@ function getPreferredLanguage() {
 function getInitialLanguage() {
   if (!isBrowser) {
     return prerenderLanguage;
+  }
+
+  const routeLanguage = getRouteLanguage();
+
+  if (routeLanguage) {
+    return routeLanguage;
   }
 
   const rootElement = document.getElementById('root');
@@ -90,11 +108,37 @@ export function setPreferredLanguage(language) {
     // A preferência ainda é aplicada quando o armazenamento está indisponível.
   }
 
+  if (
+    isBrowser &&
+    window.location.pathname !== languageRoutes[language] &&
+    !(
+      language === 'en' &&
+      window.location.pathname.startsWith(languageRoutes.en)
+    )
+  ) {
+    window.location.assign(languageRoutes[language]);
+    return;
+  }
+
   i18n.changeLanguage(language);
 }
 
 export function syncLanguageWithPreferences() {
+  const routeLanguage = getRouteLanguage();
+
+  if (routeLanguage) {
+    if (i18n.resolvedLanguage !== routeLanguage) {
+      i18n.changeLanguage(routeLanguage);
+    }
+    return;
+  }
+
   const preferredLanguage = getPreferredLanguage();
+
+  if (isBrowser && preferredLanguage === 'en') {
+    window.location.replace(languageRoutes.en);
+    return;
+  }
 
   if (i18n.resolvedLanguage !== preferredLanguage) {
     i18n.changeLanguage(preferredLanguage);

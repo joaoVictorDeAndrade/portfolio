@@ -9,11 +9,12 @@
     "build:client": "vite build",
     "build:ssr": "vite build --ssr src/entry-server.jsx --outDir dist-ssr",
     "format": "prettier --write .",
-    "lint": "prettier --check src scripts index.html package.json vite.config.js tailwind.config.js eslint.config.js .github && eslint .",
+    "lint": "prettier --check src scripts index.html buildspec.yml package.json vite.config.js tailwind.config.js eslint.config.js .github && eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@radix-ui/react-switch": "^1.1.2",
+    "@radix-ui/react-tooltip": "^1.2.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "i18next": "^24.2.0",

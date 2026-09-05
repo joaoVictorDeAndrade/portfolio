@@ -3,12 +3,11 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 24
 
   pre_build:
     commands:
-      - npm pkg delete scripts.prepare
-      - yarn install --lock-file
+      - yarn install --frozen-lockfile
 
   build:
     commands:
@@ -16,5 +15,6 @@ phases:
 
   post_build:
     commands:
-      - aws s3 sync --delete ./dist s3://${DEPLOY_BUCKET}
-      - aws cloudfront create-invalidation --distribution-id ${CF_ID} --paths /index.html
+      - aws s3 sync --delete --only-show-errors --exclude "assets/*" --cache-control "public,max-age=0,must-revalidate" ./dist s3://${DEPLOY_BUCKET}
+      - aws s3 sync --delete --only-show-errors --cache-control "public,max-age=31536000,immutable" ./dist/assets s3://${DEPLOY_BUCKET}/assets
+      - aws cloudfront create-invalidation --distribution-id ${CF_ID} --paths "/*"
