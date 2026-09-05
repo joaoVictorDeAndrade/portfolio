@@ -12,7 +12,7 @@ function App() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    syncLanguageWithPreferences();
+    return syncLanguageWithPreferences();
   }, []);
 
   return (

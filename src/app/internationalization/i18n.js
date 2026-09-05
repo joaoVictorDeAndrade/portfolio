@@ -18,12 +18,17 @@ const languageRoutes = {
   pt: '/',
 };
 
+function getLanguageFromPathname(pathname) {
+  return pathname === '/en' || pathname.startsWith('/en/') ? 'en' : 'pt';
+}
+
 function getRouteLanguage() {
   if (!isBrowser) {
     return null;
   }
 
-  return window.location.pathname.startsWith('/en') ? 'en' : null;
+  const routeLanguage = getLanguageFromPathname(window.location.pathname);
+  return routeLanguage === 'en' ? routeLanguage : null;
 }
 
 function getStoredLanguage() {
@@ -36,6 +41,14 @@ function getStoredLanguage() {
     return supportedLanguages.includes(language) ? language : null;
   } catch {
     return null;
+  }
+}
+
+function storeLanguage(language) {
+  try {
+    localStorage.setItem(languageStorageKey, language);
+  } catch {
+    // A preferência ainda é aplicada quando o armazenamento está indisponível.
   }
 }
 
@@ -102,11 +115,7 @@ export function setPreferredLanguage(language) {
     return;
   }
 
-  try {
-    localStorage.setItem(languageStorageKey, language);
-  } catch {
-    // A preferência ainda é aplicada quando o armazenamento está indisponível.
-  }
+  storeLanguage(language);
 
   if (
     isBrowser &&
@@ -116,33 +125,49 @@ export function setPreferredLanguage(language) {
       window.location.pathname.startsWith(languageRoutes.en)
     )
   ) {
-    window.location.assign(languageRoutes[language]);
-    return;
+    const route = `${languageRoutes[language]}${window.location.hash}`;
+    window.history.pushState({ language }, '', route);
   }
 
   i18n.changeLanguage(language);
 }
 
 export function syncLanguageWithPreferences() {
+  if (!isBrowser) {
+    return undefined;
+  }
+
+  const syncLanguageWithHistory = () => {
+    const language = getLanguageFromPathname(window.location.pathname);
+    storeLanguage(language);
+    i18n.changeLanguage(language);
+  };
+
+  window.addEventListener('popstate', syncLanguageWithHistory);
+
   const routeLanguage = getRouteLanguage();
 
   if (routeLanguage) {
     if (i18n.resolvedLanguage !== routeLanguage) {
       i18n.changeLanguage(routeLanguage);
     }
-    return;
+    return () =>
+      window.removeEventListener('popstate', syncLanguageWithHistory);
   }
 
   const preferredLanguage = getPreferredLanguage();
 
   if (isBrowser && preferredLanguage === 'en') {
     window.location.replace(languageRoutes.en);
-    return;
+    return () =>
+      window.removeEventListener('popstate', syncLanguageWithHistory);
   }
 
   if (i18n.resolvedLanguage !== preferredLanguage) {
     i18n.changeLanguage(preferredLanguage);
   }
+
+  return () => window.removeEventListener('popstate', syncLanguageWithHistory);
 }
 
 export const { t } = i18n;
