@@ -4,7 +4,8 @@ import { scrollTo } from '@app/utils/scrollTo.js';
 import { Button } from './Button.jsx';
 import { IconsContainer } from './IconsContainer.jsx';
 
-import profile from '../assets/images/profile.jpg';
+import profileAvif from '../assets/images/profile-optimized.avif';
+import profileJpeg from '../assets/images/profile-optimized.jpg';
 
 const LOCALE_PATH = 'components.Hero';
 
@@ -38,13 +39,16 @@ export function Hero() {
   return (
     <>
       <section className="relative top-20 m-auto mt-10 max-w-[760px] space-y-8 pb-20">
-        <img
-          src={profile}
-          alt={t(`${LOCALE_PATH}.profileAlt`)}
-          width={160}
-          height={160}
-          className="m-auto h-40 w-40 rounded-full object-cover object-[center_70%]"
-        />
+        <picture>
+          <source srcSet={profileAvif} type="image/avif" />
+          <img
+            src={profileJpeg}
+            alt={t(`${LOCALE_PATH}.profileAlt`)}
+            width={160}
+            height={160}
+            className="m-auto h-40 w-40 rounded-full object-cover"
+          />
+        </picture>
 
         <h1 className="text-center text-3xl font-bold text-white [text-wrap:balance] sm:text-5xl">
           {t(`${LOCALE_PATH}.title`)}{' '}
