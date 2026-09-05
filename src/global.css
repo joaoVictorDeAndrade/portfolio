@@ -17,11 +17,11 @@
   }
 
   a {
-    @apply focus:outline-none focus:ring-2 focus:ring-secondary-main;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-main;
   }
 
   button {
-    @apply ring-secondary-main focus:outline-none focus:ring-2;
+    @apply ring-secondary-main focus-visible:outline-none focus-visible:ring-2;
   }
 
   .experience-text {
@@ -35,5 +35,20 @@
 
   :root {
     --radius: 0.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

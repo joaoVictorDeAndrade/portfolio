@@ -13,13 +13,18 @@ export function Footer() {
 
       <footer
         id="footer"
-        className="w-full bg-center px-10 pb-20 pt-10 lg:px-36"
+        aria-labelledby="contact-title"
+        className="w-full scroll-mt-24 bg-center px-10 pb-20 pt-10 lg:px-36"
       >
-        <h5 className="text-xl font-bold">{t(`${LOCALE_PATH}.title`)}</h5>
+        <h2 id="contact-title" className="text-xl font-bold">
+          {t(`${LOCALE_PATH}.title`)}
+        </h2>
 
         <p className="mb-4 mt-6">{t(`${LOCALE_PATH}.description`)}</p>
 
-        <p>jv.andrade02@gmail.com</p>
+        <a className="inline-block" href="mailto:jv.andrade02@gmail.com">
+          jv.andrade02@gmail.com
+        </a>
       </footer>
     </>
   );

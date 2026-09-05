@@ -5,6 +5,10 @@ export default {
       description:
         'Portfólio de João Andrade, engenheiro de software full-stack focado ' +
         'em interfaces web acessíveis e performáticas com React e Vue.',
+      socialImageAlt: 'Retrato de João Andrade.',
+    },
+    accessibility: {
+      skipToContent: 'Pular para o conteúdo principal',
     },
     components: {
       Header: {

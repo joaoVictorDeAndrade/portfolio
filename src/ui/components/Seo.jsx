@@ -13,6 +13,7 @@ export function Seo() {
   useEffect(() => {
     const title = t(`${LOCALE_PATH}.title`);
     const description = t(`${LOCALE_PATH}.description`);
+    const socialImageAlt = t(`${LOCALE_PATH}.socialImageAlt`);
     const locale = i18n.resolvedLanguage === 'pt' ? 'pt_BR' : 'en_US';
 
     document.title = title;
@@ -20,8 +21,10 @@ export function Seo() {
     updateMetaContent('meta[property="og:title"]', title);
     updateMetaContent('meta[property="og:description"]', description);
     updateMetaContent('meta[property="og:locale"]', locale);
+    updateMetaContent('meta[property="og:image:alt"]', socialImageAlt);
     updateMetaContent('meta[name="twitter:title"]', title);
     updateMetaContent('meta[name="twitter:description"]', description);
+    updateMetaContent('meta[name="twitter:image:alt"]', socialImageAlt);
   }, [i18n.resolvedLanguage, t]);
 
   return null;

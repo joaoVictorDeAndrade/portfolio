@@ -8,13 +8,13 @@ export function Experience() {
   const { t } = useTranslation();
 
   return (
-    <>
-      <div id="experience" />
-      <section className="m-auto mt-20 max-w-[760px] text-center">
-        <h3 className="experience-text">{t(`${LOCALE_PATH}.title`)}</h3>
+    <section
+      id="experience"
+      className="m-auto mt-20 max-w-[760px] scroll-mt-24 text-center"
+    >
+      <h2 className="experience-text">{t(`${LOCALE_PATH}.title`)}</h2>
 
-        <ExperienceList />
-      </section>
-    </>
+      <ExperienceList />
+    </section>
   );
 }

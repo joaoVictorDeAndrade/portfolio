@@ -11,21 +11,29 @@ import dockerLogo from '/docker.svg?url';
 import gitLogo from '/git.svg?url';
 import postgresLogo from '/postgres.svg?url';
 
+const technologies = [
+  { name: 'React', logo: reactLogo },
+  { name: 'Vue', logo: vueLogo },
+  { name: 'Node.js', logo: nodeLogo },
+  { name: 'Jest', logo: jestLogo },
+  { name: 'JavaScript', logo: javascriptLogo },
+  { name: 'TypeScript', logo: typescriptLogo },
+  { name: 'Tailwind CSS', logo: tailwindcssLogo },
+  { name: 'Next.js', logo: nextJsLogo },
+  { name: 'AWS', logo: awsLogo },
+  { name: 'Docker', logo: dockerLogo },
+  { name: 'Git', logo: gitLogo },
+  { name: 'PostgreSQL', logo: postgresLogo },
+];
+
 export function IconsContainer() {
   return (
-    <div className="grid grid-cols-6 items-center gap-8">
-      <img src={reactLogo} alt="React Js" />
-      <img src={vueLogo} alt="Vue Js" />
-      <img src={nodeLogo} alt="Node Js" />
-      <img src={jestLogo} alt="Jest" />
-      <img src={javascriptLogo} alt="JavaScript" />
-      <img src={typescriptLogo} alt="TypeScript" />
-      <img src={tailwindcssLogo} alt="Tailwind CSS" />
-      <img src={nextJsLogo} alt="Next Js" />
-      <img src={awsLogo} alt="AWS" />
-      <img src={dockerLogo} alt="Docker" />
-      <img src={gitLogo} alt="Git" />
-      <img src={postgresLogo} alt="Postgres SQL" />
-    </div>
+    <ul className="grid grid-cols-4 items-center gap-8 sm:grid-cols-6">
+      {technologies.map(({ name, logo }) => (
+        <li key={name}>
+          <img src={logo} alt={name} title={name} />
+        </li>
+      ))}
+    </ul>
   );
 }

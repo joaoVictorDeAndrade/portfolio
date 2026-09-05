@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 import { scrollTo } from '@app/utils/scrollTo.js';
@@ -10,8 +10,25 @@ const LOCALE_PATH = 'components.Header';
 export function Header() {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef(null);
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined;
+    }
+
+    const closeMenuOnEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', closeMenuOnEscape);
+    return () => document.removeEventListener('keydown', closeMenuOnEscape);
+  }, [isMenuOpen]);
 
   const goToHome = () => {
     scrollTo(0);
@@ -41,9 +58,12 @@ export function Header() {
               </a>
             </li>
             <li>
-              <a href="#projects" className="cursor-not-allowed">
+              <span
+                aria-disabled="true"
+                className="cursor-not-allowed text-white/50"
+              >
                 {t(`${LOCALE_PATH}.projects`)}
-              </a>
+              </span>
             </li>
             <li>
               <a href="#experience">{t(`${LOCALE_PATH}.experience`)}</a>
@@ -55,6 +75,7 @@ export function Header() {
         </nav>
 
         <button
+          ref={menuButtonRef}
           type="button"
           className="flex h-11 w-11 items-center justify-center rounded-lg lg:hidden"
           aria-label={t(
