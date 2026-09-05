@@ -16,10 +16,19 @@ function getDefaultLanguage() {
 i18n.use(initReactI18next).init({
   resources,
   lng: getDefaultLanguage(),
+  fallbackLng: 'en',
+  supportedLngs: ['en', 'pt'],
   interpolation: {
     escapeValue: false,
   },
 });
+
+function updateDocumentLanguage(language) {
+  document.documentElement.lang = language === 'pt' ? 'pt-BR' : 'en';
+}
+
+updateDocumentLanguage(i18n.resolvedLanguage);
+i18n.on('languageChanged', updateDocumentLanguage);
 
 export const { t } = i18n;
 export default i18n;

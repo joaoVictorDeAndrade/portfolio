@@ -4,8 +4,10 @@ import { useTranslation } from 'react-i18next';
 import brazilLogo from '/brazil.svg?url';
 import unitedStatesLogo from '/unitedStates.svg?url';
 
+const LOCALE_PATH = 'components.LanguageSwitch';
+
 export function LanguageSwitch() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const toggleLanguage = () => {
     const newLanguage = i18n.language === 'en' ? 'pt' : 'en';
@@ -17,6 +19,7 @@ export function LanguageSwitch() {
       <img src={brazilLogo} alt="" />
       <Switch
         id="language"
+        aria-label={t(`${LOCALE_PATH}.label`)}
         onCheckedChange={toggleLanguage}
         checked={i18n.language === 'en'}
       />

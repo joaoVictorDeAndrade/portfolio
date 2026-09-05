@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const colorMap = {
   primary: 'via-primary-main',
   secondary: 'via-secondary-main',
@@ -12,3 +14,7 @@ export function Divisor({ tailwindColor = 'secondary' }) {
     />
   );
 }
+
+Divisor.propTypes = {
+  tailwindColor: PropTypes.oneOf(['primary', 'secondary']),
+};

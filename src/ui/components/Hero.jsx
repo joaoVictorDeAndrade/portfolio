@@ -40,7 +40,7 @@ export function Hero() {
       <section className="relative top-20 m-auto mt-10 max-w-[760px] space-y-8 pb-20">
         <img
           src={profile}
-          alt="Foto de João"
+          alt={t(`${LOCALE_PATH}.profileAlt`)}
           width={160}
           height={160}
           className="m-auto h-40 w-40 rounded-full object-cover object-[center_70%]"

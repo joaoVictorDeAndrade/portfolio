@@ -1,26 +1,32 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@components': path.resolve(__dirname, 'src/ui/components'),
-      '@app': path.resolve(__dirname, 'src/app'),
+export default defineConfig(({ mode }) => {
+  const rootDirectory = path.dirname(fileURLToPath(import.meta.url));
+  const config = {
+    plugins: [react()],
+    resolve: {
+      alias: {
+        '@components': path.resolve(rootDirectory, 'src/ui/components'),
+        '@app': path.resolve(rootDirectory, 'src/app'),
+      },
     },
-  },
-  server:
-    mode === 'development'
-      ? {
-          proxy: {
-            '/api': {
-              target: 'https://joaoandrade.dev.br',
-              changeOrigin: true,
-              rewrite: (path) => path.replace(/^\/api/, ''),
-            },
-          },
-        }
-      : {},
-}));
+  };
+
+  if (mode === 'development') {
+    config.server = {
+      proxy: {
+        '/api': {
+          target: 'https://joaoandrade.dev.br',
+          changeOrigin: true,
+          rewrite: (requestPath) => requestPath.replace(/^\/api/, ''),
+        },
+      },
+    };
+  }
+
+  return config;
+});
