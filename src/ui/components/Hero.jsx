@@ -8,33 +8,20 @@ import profileAvif from '../assets/images/profile-optimized.avif';
 import profileJpeg from '../assets/images/profile-optimized.jpg';
 
 const LOCALE_PATH = 'components.Hero';
+const resumes = {
+  en: {
+    download: 'Joao-Andrade-Resume.pdf',
+    href: '/cv/joao-andrade-en.pdf',
+  },
+  pt: {
+    download: 'Joao-Andrade-Curriculo.pdf',
+    href: '/cv/joao-andrade-pt.pdf',
+  },
+};
 
 export function Hero() {
   const { t, i18n } = useTranslation();
-
-  async function downloadCV() {
-    try {
-      const { language } = i18n;
-
-      const pdfLinks = {
-        pt: 'https://drive.google.com/uc?export=download&id=1TKoyNKSZ8qGDaholedTb4Z_ZhJjNRD9w',
-        en: 'https://drive.google.com/uc?export=download&id=15Vmvus7X4XKkJ3lUi0EW6pxzrMYLAViK',
-      };
-
-      const pdfUrl = pdfLinks[language] || pdfLinks.en;
-
-      const link = document.createElement('a');
-      link.href = pdfUrl;
-      link.download = 'JoaoAndrade.pdf';
-      document.body.appendChild(link);
-
-      link.click();
-
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error('Error:', error.message);
-    }
-  }
+  const resume = resumes[i18n.resolvedLanguage] ?? resumes.en;
 
   return (
     <section
@@ -81,7 +68,11 @@ export function Hero() {
         <Button onClick={() => scrollTo(document.documentElement.scrollHeight)}>
           {t(`${LOCALE_PATH}.getInTouch`)}
         </Button>
-        <Button variant="secondary" onClick={downloadCV}>
+        <Button
+          variant="secondary"
+          href={resume.href}
+          download={resume.download}
+        >
           {t(`${LOCALE_PATH}.downloadCV`)}
         </Button>
       </div>

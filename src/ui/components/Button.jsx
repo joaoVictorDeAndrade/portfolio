@@ -2,7 +2,7 @@ import { tv } from 'tailwind-variants';
 import PropTypes from 'prop-types';
 
 const button = tv({
-  base: 'h-10 text-white font-semibold rounded-full hover:ring-2',
+  base: 'inline-flex h-10 items-center justify-center rounded-full font-semibold text-white hover:ring-2',
   variants: {
     variant: {
       primary: 'bg-white text-inherit',
@@ -26,13 +26,19 @@ const button = tv({
   },
 });
 
-export function Button({ children, size, variant, onClick }) {
+export function Button({ children, download, href, onClick, size, variant }) {
+  const className = button({ size, variant });
+
+  if (href) {
+    return (
+      <a href={href} download={download} className={className}>
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={button({ size, variant })}
-    >
+    <button type="button" onClick={onClick} className={className}>
       {children}
     </button>
   );
@@ -40,6 +46,8 @@ export function Button({ children, size, variant, onClick }) {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
+  download: PropTypes.string,
+  href: PropTypes.string,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   variant: PropTypes.oneOf(['primary', 'secondary']),
