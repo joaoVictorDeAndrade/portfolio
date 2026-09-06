@@ -43,6 +43,7 @@ export default {
       },
       Experience: {
         title: 'Experiência',
+        showLess: 'Mostrar menos',
         showMore: 'Mostrar mais',
       },
       LanguageSwitch: {

@@ -20,9 +20,9 @@ export function ExperienceList() {
           <ExperienceItem key={company.id} experience={company} />
         ))}
       </ul>
-      {!showAll && (
-        <button type="button" onClick={() => setShowAll(true)}>
-          {t(`${LOCALE_PATH}.showMore`)}
+      {COMPANIES.length > 3 && (
+        <button type="button" onClick={() => setShowAll((isShown) => !isShown)}>
+          {t(`${LOCALE_PATH}.${showAll ? 'showLess' : 'showMore'}`)}
         </button>
       )}
     </>

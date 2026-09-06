@@ -45,6 +45,7 @@ export default {
       },
       Experience: {
         title: 'Experience',
+        showLess: 'Show less',
         showMore: 'Show more',
       },
       LanguageSwitch: {
