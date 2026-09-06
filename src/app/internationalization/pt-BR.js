@@ -63,58 +63,59 @@ export default {
           link: 'https://www.allstacks.com/',
           period: 'Mai 2025 - Presente',
           description:
-            'Trabalho em uma <strong>plataforma norte-americana de análise de engenharia de software</strong>. ' +
-            'Liderei iniciativas de migração do Vue 2 para o Vue 3, padronizando a arquitetura dos módulos ' +
-            'em queries, services e composables. Também desenvolvo <strong>experiências orientadas por IA</strong> ' +
-            'com fluxos assíncronos de longa duração, visualização contextual de dados e interfaces colaborativas ' +
-            'de planejamento; crio funcionalidades complexas para o Data Explorer; e implementei um cache que ' +
-            'reduziu chamadas redundantes à API e melhorou a responsividade da aplicação.',
+            'Atualmente trabalho em uma <strong>plataforma de análise de engenharia de software</strong> que ' +
+            'ajuda equipes a compreender e melhorar a forma como entregam software. No dia a dia, atuo desde a ' +
+            'modernização de aplicações Vue e evolução do Data Explorer até a criação de <strong>experiências ' +
+            'com IA</strong> que transformam dados complexos de engenharia em informações úteis. Também dedico ' +
+            'atenção à arquitetura e ao desempenho para manter essas experiências sustentáveis e responsivas.',
         },
         capim: {
-          title: 'Engenheiro Front-end na ',
+          title: 'Engenheiro de Software na ',
           name: 'Capim',
           link: 'https://capim.com.br/',
           period: 'Dez 2023 - Mai 2025',
           description:
-            'Refatorei todo o front-end do fluxo de solicitação de crédito, principal serviço da fintech, ' +
-            'que impacta <strong>milhares de pessoas</strong> e movimenta milhões de reais todos os meses. ' +
-            'Migrei a aplicação da Options API para a Composition API do Vue e projetei um Design System ' +
-            'acessível e escalável. Também entreguei funcionalidades voltadas à aquisição e retenção de clientes, ' +
-            'aumentei a confiabilidade dos fluxos principais com testes unitários e end-to-end, orientei ' +
-            'desenvolvedores juniores e estagiários e liderei iniciativas da Guilda de Front-end.',
+            'Trabalhei em uma <strong>fintech</strong> na área odontológica. Participei do time de onboarding, ' +
+            'desenvolvendo funcionalidades focadas em aumentar a receita da empresa por meio da aquisição de ' +
+            'mais leads e clientes assinantes. Após um aumento significativo no número de clientes, fui promovido ' +
+            'e realocado para refatorar todo o fluxo de crédito, principal serviço da empresa, que impacta ' +
+            '<strong>milhares de pessoas</strong> todos os meses.',
         },
         petlove: {
-          title: 'Engenheiro Front-end na ',
-          name: 'Petlove Tech',
+          title: 'Desenvolvedor Front-end na ',
+          name: 'Petlove',
           link: 'https://www.petlove.com.br/',
-          period: 'Set 2022 - Nov 2023',
+          period: 'Ago 2022 - Dez 2023',
           description:
-            'Desenvolvi e integrei funcionalidades de front-end que melhoraram a usabilidade e o desempenho ' +
-            'de uma plataforma que dá suporte a um dos maiores ecossistemas de cuidados para animais do Brasil. ' +
-            'Aumentei a confiabilidade do código com Jest e Vue Test Utils, participei da modernização de ' +
-            'dependências e de atualizações de frameworks e colaborei com equipes multidisciplinares para ' +
-            'entregar <strong>soluções escaláveis e focadas no usuário</strong>.',
+            'Trabalhei desenvolvendo novas funcionalidades para um ERP de gerenciamento ' +
+            'de Pet-shops e Hospitais Veterinários. <br />' +
+            'Desenvolvi funcionalidades focadas em User Experience que aumentaram o tempo ' +
+            'de uso da aplicação. Além disso, implementei testes automatizados para garantir ' +
+            'a qualidade do código e apliquei melhores práticas de Clean Code pelo aplicativo.',
         },
         bhut: {
-          title: 'Engenheiro de Software na ',
+          title: 'Desenvolvedor Front-end na ',
           name: 'Bhut',
           link: 'https://bhut.com.br/',
-          period: 'Jan 2022 - Set 2022',
+          period: 'Jan 2022 - Ago 2022',
           description:
-            'Desenvolvi funcionalidades para uma <strong>plataforma de banco digital</strong>, incluindo ' +
-            'fluxos relacionados ao Pix utilizados em operações financeiras diárias. Criei interfaces para ' +
-            'sistemas web, mobile com React Native e back-office, com foco em usabilidade e confiabilidade, ' +
-            'além de manter e aprimorar fluxos existentes da aplicação.',
+            'Como Desenvolvedor Front-end na Bhut, fui responsável por desenvolver interfaces ' +
+            'de usuário de alto desempenho para aplicações web. ' +
+            'Trabalhei como desenvolvedor front-end e mobile, colaborando no desenvolvimento ' +
+            'de um novo banco digital. Desenvolvi novos fluxos para o site, aplicativo e ' +
+            'back-office do projeto, além de melhorar a UX/UI em todas as aplicações.',
         },
         conpec: {
-          title: 'Engenheiro de Software na ',
-          name: 'Conpec Jr',
+          title: 'Trainee Front-end na ',
+          name: 'Conpec (Empresa Jr)',
           link: 'https://www.conpec.com.br/',
-          period: 'Mar 2021 - Abr 2022',
+          period: 'Mar 2021 - Jan 2022',
           description:
-            'Desenvolvi funcionalidades de front-end com HTML, CSS, JavaScript, React e Firebase. Criei uma ' +
-            '<strong>plataforma interna de gestão de RH</strong>, contribuí para uma plataforma de ensino de ' +
-            'inglês e trabalhei com práticas Scrum e controle de versão baseado em Git.',
+            'Trabalhei como desenvolvedor front-end utilizando tecnologias como ' +
+            'HTML, CSS, JavaScript e React.js para criar uma aplicação que melhorou o ' +
+            'gerenciamento dos membros da empresa realizado pelo departamento de ' +
+            'Recursos Humanos. Também adquiri conhecimentos em Scrum, metodologias ' +
+            'ágeis e versionamento de código.',
         },
       },
     },
