@@ -9,7 +9,45 @@
     />
     <meta name="theme-color" content="#030712" />
 
+    <script>
+      (() => {
+        if (window.location.pathname !== '/') {
+          return;
+        }
+
+        let language;
+
+        try {
+          language = localStorage.getItem('portfolioLanguage');
+        } catch {
+          language = null;
+        }
+
+        if (!['en', 'pt'].includes(language)) {
+          const preferredLanguages = navigator.languages ?? [
+            navigator.language,
+          ];
+          language = preferredLanguages
+            .map((value) => value?.toLowerCase().split('-')[0])
+            .find((value) => ['en', 'pt'].includes(value));
+        }
+
+        if ((language ?? 'en') === 'en') {
+          window.location.replace(
+            `/en/${window.location.search}${window.location.hash}`
+          );
+        }
+      })();
+    </script>
+
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="preload" href="/brazil.svg" as="image" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="/unitedStates.svg"
+      as="image"
+      type="image/svg+xml"
+    />
     <link rel="canonical" href="https://joaoandrade.dev.br/" />
     <link rel="alternate" hreflang="pt-BR" href="https://joaoandrade.dev.br/" />
     <link rel="alternate" hreflang="en" href="https://joaoandrade.dev.br/en/" />

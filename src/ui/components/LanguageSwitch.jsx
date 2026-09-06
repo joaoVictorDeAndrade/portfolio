@@ -52,7 +52,13 @@ export function LanguageSwitch({ variant = 'desktop', onLanguageChange }) {
               className="flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/10 px-3 text-sm transition-colors hover:bg-white/10 aria-pressed:border-secondary-main aria-pressed:bg-white/10"
               onClick={() => changeLanguage(code)}
             >
-              <img src={flag} alt="" className="h-6 w-6" />
+              <img
+                src={flag}
+                alt=""
+                width={24}
+                height={24}
+                className="h-6 w-6"
+              />
               <span>{label}</span>
             </button>
           );
@@ -65,14 +71,14 @@ export function LanguageSwitch({ variant = 'desktop', onLanguageChange }) {
 
   return (
     <div className="absolute right-6 hidden items-center gap-1 lg:flex">
-      <img src={brazilLogo} alt="" />
+      <img src={brazilLogo} alt="" width={32} height={32} />
       <Switch
         id="language"
         aria-label={`${nextLanguage} — ${t(`${LOCALE_PATH}.label`)}`}
         onCheckedChange={toggleLanguage}
         checked={i18n.language === 'en'}
       />
-      <img src={unitedStatesLogo} alt="" />
+      <img src={unitedStatesLogo} alt="" width={32} height={32} />
     </div>
   );
 }
