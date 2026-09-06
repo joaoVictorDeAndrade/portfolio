@@ -10,6 +10,15 @@ export function useExperienceList() {
     () => [
       {
         id: 1,
+        key: 'allstacks',
+        title: t(`${LOCALE_PATH}.allstacks.title`),
+        name: t(`${LOCALE_PATH}.allstacks.name`),
+        link: 'https://www.allstacks.com/',
+        period: t(`${LOCALE_PATH}.allstacks.period`),
+        descriptionKey: `${LOCALE_PATH}.allstacks.description`,
+      },
+      {
+        id: 2,
         key: 'capim',
         title: t(`${LOCALE_PATH}.capim.title`),
         name: t(`${LOCALE_PATH}.capim.name`),
@@ -18,7 +27,7 @@ export function useExperienceList() {
         descriptionKey: `${LOCALE_PATH}.capim.description`,
       },
       {
-        id: 2,
+        id: 3,
         key: 'petlove',
         title: t(`${LOCALE_PATH}.petlove.title`),
         name: t(`${LOCALE_PATH}.petlove.name`),
@@ -27,7 +36,7 @@ export function useExperienceList() {
         descriptionKey: `${LOCALE_PATH}.petlove.description`,
       },
       {
-        id: 3,
+        id: 4,
         key: 'bhut',
         title: t(`${LOCALE_PATH}.bhut.title`),
         name: t(`${LOCALE_PATH}.bhut.name`),
@@ -36,7 +45,7 @@ export function useExperienceList() {
         descriptionKey: `${LOCALE_PATH}.bhut.description`,
       },
       {
-        id: 4,
+        id: 5,
         key: 'conpec',
         title: t(`${LOCALE_PATH}.conpec.title`),
         name: t(`${LOCALE_PATH}.conpec.name`),

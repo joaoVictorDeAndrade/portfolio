@@ -58,53 +58,64 @@ export default {
     },
     constants: {
       companies: {
+        allstacks: {
+          title: 'Front-end Engineer at ',
+          name: 'Allstacks',
+          link: 'https://www.allstacks.com/',
+          period: 'May 2025 - Present',
+          description:
+            'I work on a US-based <strong>software engineering analytics platform</strong>. ' +
+            'I have led initiatives to migrate Vue 2 to Vue 3, standardizing the module architecture ' +
+            'around queries, services, and composables. I also build <strong>AI-driven experiences</strong> ' +
+            'with long-running asynchronous workflows, contextual data visualization, and collaborative ' +
+            'planning interfaces; develop complex features for Data Explorer; and implemented a cache ' +
+            'that reduced redundant API calls and improved application responsiveness.',
+        },
         capim: {
-          title: 'Software Engineer at ',
+          title: 'Front-end Engineer at ',
           name: 'Capim',
           link: 'https://capim.com.br/',
-          period: 'Dec 2023 - Present',
+          period: 'Dec 2023 - May 2025',
           description:
-            'I currently work at a <strong>fintech</strong> in the dental field. I was part of ' +
-            "the onboarding team, developing features aimed at increasing the company's revenue by " +
-            'acquiring more leads and subscriber clients. After a significant increase in the number ' +
-            'of clients, I was promoted and reassigned to refactor the entire credit flow ' +
-            "(the company's core service), which impacts <strong>thousands of people</strong> " +
-            'every month.',
+            "I refactored the entire front end of the credit request flow, the fintech's core service, " +
+            'which impacts <strong>thousands of people</strong> and handles millions of reais every month. ' +
+            'I migrated the application from the Vue Options API to the Composition API and designed an ' +
+            'accessible, scalable Design System. I also delivered features supporting customer acquisition ' +
+            'and retention, increased core-flow reliability through unit and end-to-end tests, mentored ' +
+            'junior developers and interns, and led Front-end Guild initiatives.',
         },
         petlove: {
-          title: 'Front-end Developer at ',
-          name: 'Petlove',
+          title: 'Front-end Engineer at ',
+          name: 'Petlove Tech',
           link: 'https://www.petlove.com.br/',
-          period: 'Aug 2022 - Dec 2023',
+          period: 'Sep 2022 - Nov 2023',
           description:
-            'My responsibilities included working on new functionalities for the ERP system ' +
-            'intended for pet shops and veterinary clinics management. <br />' +
-            'This included implementation of User Interface changes which correlated with more ' +
-            'active use of the application and longer sessions within the application.<br />' +
-            'Modification of the procedures of the application reinforced by using ' +
-            'Clean Code principles.',
+            'I developed and integrated front-end features that improved the usability and performance ' +
+            "of a platform supporting one of Brazil's largest pet care ecosystems. I increased code " +
+            'reliability with Jest and Vue Test Utils, participated in dependency modernization and ' +
+            'framework upgrades, and collaborated with cross-functional teams to deliver ' +
+            '<strong>scalable, user-focused solutions</strong>.',
         },
         bhut: {
-          title: 'Front-end Developer at ',
+          title: 'Software Engineer at ',
           name: 'Bhut',
           link: 'https://www.bhut.com.br/',
-          period: 'Jan 2022 - Aug 2022',
+          period: 'Jan 2022 - Sep 2022',
           description:
-            'As a Front-end Developer at Bhut, I was responsible for developing ' +
-            'high-performance user interfaces for web applications. I worked as a front-end and mobile developer, ' +
-            'collaborating on the development of a new digital bank. ' +
-            "I developed new flows for the website, application, and project's back-office " +
-            'and I improved the UX/UI across all applications',
+            'I developed features for a <strong>digital banking platform</strong>, including Pix-related ' +
+            'flows used in daily financial operations. I built interfaces for web, mobile with React Native, ' +
+            'and back-office systems, focusing on usability and reliability while maintaining and improving ' +
+            'existing application flows.',
         },
         conpec: {
-          title: 'Front-end Trainee at ',
-          name: 'Conpec (Junior Company)',
+          title: 'Software Engineer at ',
+          name: 'Conpec Jr',
           link: 'https://www.conpec.com.br/',
-          period: 'Mar 2021 - Jan 2022',
+          period: 'Mar 2021 - Apr 2022',
           description:
-            'I worked as a front-end developer using technologies such as HTML, CSS, Javascript and React Js' +
-            ' to create an application that improved the management of company members carried out by ' +
-            'the Human Resources department. I also gained knowledge in Scrum, Agile Methodologies, and code versioning',
+            'I developed front-end features using HTML, CSS, JavaScript, React, and Firebase. I built an ' +
+            '<strong>internal HR management platform</strong>, contributed to an English-learning platform, ' +
+            'and worked with Scrum practices and Git-based version control.',
         },
       },
     },
